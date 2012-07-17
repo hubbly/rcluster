@@ -9,6 +9,7 @@ var RCluster = function(host, port, opts) {
 
 	var _this = this;
 	_this.nodes = [];
+	_this.nodes_by_addr = new Object(null);
 	_this.slots = Array(4096);
 	_this.opts = opts;
 	var initialNode = _this._setupNode(host, port);
@@ -186,5 +187,6 @@ RCluster.prototype._setupNode = function(port, host) {
 	});
 	
 	_this.nodes.push(node);
+	_this.nodes_by_addr[host + ':' + port] = node;
 	return node;
 };
