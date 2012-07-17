@@ -1,0 +1,26 @@
+{
+	"author": "Juraj Vitko (ypocat.com)",
+	"name": "rcluster",
+	"description": "redis cluster",
+	"keywords": [ "redis", "cluster" ],
+	"version": "0.0.1",
+	"homepage": "http://github.com/ypocat/rcluster",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/ypocat/rcluster.git"
+	},
+	"main": "rcluster.js",
+	"directories": {
+	},
+	"engines": {
+		"node": "*"
+	},
+	"dependencies": {
+		"redis": "*"
+	},
+	"devDependencies": {
+	},
+	"licenses": [
+		{  "type" : "MIT", "url" : "https://raw.github.com/ypocat/rcluster/master/LICENSE" }
+	]
+}

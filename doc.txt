@@ -1,0 +1,26 @@
+
+
+1. add new node(s) to the redis cluster
+2. redeploy your nodejs instances with resharding=true (restarting these will also notice the new redis node(s))
+3. hot-reshard the redis cluster
+4. redeploy your nodejs instances with resharding=false
+
+
+
+var rcluster = require('rcluster').init(_redis_ctor_args_);
+
+rcluster.hot_resharding = true;
+
+rcluster.on('ready', function() {
+
+	rcluster.nodes <-- array; hook your redis-node-specific events here
+
+	// cluster is ready, you can start working with the DB here
+	// beware - this msg will come repeatedly in case of any redis-node re-connection
+});
+
+rcluster.on('error', ...);
+
+rcluster.node(key).set(key, value, cb); // but does not support hot-resharding
+
+rcluster.set('key', 'value', cb);
