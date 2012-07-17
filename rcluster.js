@@ -71,6 +71,9 @@ RCluster.prototype._reshardingWrapper = function(command, cmd_args, cb) {
 				});
 			}
 			else {
+				// update the slot registry based on the -MOVE info:
+				_this.nodes[slot] = node;
+				// resend the command to the proper node
 				node.send_command.apply(node, [ command, cmd_args ]);
 			}
 		}
