@@ -166,11 +166,14 @@ RCluster.prototype._setupNode = function(port, host) {
 
 	node.on('ready', function() {
 		_this.emit('ready', node);
-		for(var i = 0, r = 0; i < _this.nodes.length; i++)
-			if(_this.nodes[i].ready)
-				r++;
-		if(_this.nodes.length - 1 == r)
-			_this.emit('cluster ready');
+		var ln = _this.nodes.length;
+		if(ln > 1) {
+			for(var i = 0, r = 0; i < ln; i++)
+				if(_this.nodes[i].ready)
+					r++;
+			if(ln === r)
+				_this.emit('cluster ready');
+		}
 	});
 
 	node.on('error', function(err) {

@@ -3,7 +3,7 @@
 	"name": "rcluster",
 	"description": "redis cluster",
 	"keywords": [ "redis", "cluster" ],
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"homepage": "http://github.com/ypocat/rcluster",
 	"repository": {
 		"type": "git",
